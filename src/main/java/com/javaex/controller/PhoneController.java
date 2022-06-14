@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -45,9 +44,10 @@ public class PhoneController {
 		}
 	
 	
+
 	
 	//수정폼
-	@RequestMapping(value="/updateForm/{no}", method= {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="/updateForm", method= {RequestMethod.GET, RequestMethod.POST})
 	public String updateForm(Model model, @RequestParam("no") int no) {
 		System.out.println("PhoneController>updateForm()");
 
@@ -70,8 +70,8 @@ public class PhoneController {
 	}
 	
 	//삭제
-	@RequestMapping(value="/delete/{no}", method= {RequestMethod.GET, RequestMethod.POST})
-	public String delete(@PathVariable("no") int no) {
+	@RequestMapping(value="/delete", method= {RequestMethod.GET, RequestMethod.POST})
+	public String delete(@RequestParam("no") int no) {
 		System.out.println("PhoneController>delete");
 		
 		//값 꺼내기
